@@ -1,0 +1,1 @@
+https://godoc.org/github.com/oleksandr-pol/file
