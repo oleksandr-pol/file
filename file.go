@@ -20,6 +20,7 @@ func IsExists(path string) (bool, error) {
 	return false, err
 }
 
+// reads file
 func GetContents(filename string) ([]byte, error) {
 	fp, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, os.ModePerm)
 
@@ -33,6 +34,7 @@ func GetContents(filename string) ([]byte, error) {
 	return contents, nil
 }
 
+// writes to file
 func PutContents(filename string, content []byte) error {
 	fp, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, os.ModePerm)
 
