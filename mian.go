@@ -6,6 +6,7 @@ import (
 	"os"
 )
 
+// checks if there exists file on given path
 func IsExists(path string) (bool, error) {
 	_, err := os.Stat(path)
 	if err == nil {
