@@ -1,3 +1,4 @@
+// Package file provides functions for reading/writing files
 package file
 
 import (
@@ -6,7 +7,9 @@ import (
 	"os"
 )
 
-// checks if there exists file on given path
+// Checks if there exists file on given path.
+// It accepts path to file as argument, type is string.
+// It returns boolean result and error if there no file on given path.
 func IsExists(path string) (bool, error) {
 	_, err := os.Stat(path)
 	if err == nil {
@@ -20,7 +23,9 @@ func IsExists(path string) (bool, error) {
 	return false, err
 }
 
-// reads file
+// Reads file at given path, if file does not exist creates new file.
+// It accepts filename as argument, filename type is string.
+// It returns bytes array result and error if it is not possible to create a file.
 func GetContents(filename string) ([]byte, error) {
 	fp, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, os.ModePerm)
 
@@ -34,9 +39,12 @@ func GetContents(filename string) ([]byte, error) {
 	return contents, nil
 }
 
-// writes to file
-func PutContents(filename string, content []byte) error {
-	fp, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, os.ModePerm)
+// Writes to existing file.
+// It accepts filename as first argument and content as second argument.
+// Filename type is string, content type is also a string.
+// It returns error if it is not possible to write to file.
+func PutContents(filename string, content string) error {
+	fp, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, os.ModeAppend)
 
 	if err != nil {
 		return err
@@ -44,7 +52,7 @@ func PutContents(filename string, content []byte) error {
 
 	defer fp.Close()
 
-	_, err = fp.Write(content)
+	_, err = fp.WriteString(content)
 
 	return err
 }

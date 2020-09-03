@@ -1,4 +1,4 @@
-package file_test
+package main
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"github.com/oleksandr-pol/file"
 )
 
-func Example() {
+func main() {
 	r, _ := file.IsExists("test.txt")
 	fmt.Println(r)
 
