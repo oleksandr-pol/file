@@ -1,4 +1,4 @@
-// Package file provides functions for reading/writing files
+// File ackage file provides functions for reading/writing files
 package file
 
 import (
@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-// Checks if there exists file on given path.
+// IsExists Checks if there exists file on given path.
 // It accepts path to file as argument, type is string.
 // It returns boolean result and error if there no file on given path.
 func IsExists(path string) (bool, error) {
@@ -23,7 +23,7 @@ func IsExists(path string) (bool, error) {
 	return false, err
 }
 
-// Reads file at given path, if file does not exist creates new file.
+// GetContents reads file at given path, if file does not exist creates new file.
 // It accepts filename as argument, filename type is string.
 // It returns bytes array result and error if it is not possible to create a file.
 func GetContents(filename string) ([]byte, error) {
@@ -39,7 +39,7 @@ func GetContents(filename string) ([]byte, error) {
 	return contents, nil
 }
 
-// Writes to existing file.
+// PutContents writes to existing file.
 // It accepts filename as first argument and content as second argument.
 // Filename type is string, content type is also a string.
 // It returns error if it is not possible to write to file.
